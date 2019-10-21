@@ -1,0 +1,25 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#include <iostream.h>
+#include <stdlib.h>
+#include <TVector.h>
+#pragma hdrstop
+
+//---------------------------------------------------------------------------
+
+#pragma argsused
+int main(int argc, char* argv[])
+{
+   double arr[5] = {1,4,56,7,87};
+   TVector v(arr, 5);
+   TVector::iterator iterator;
+   for(iterator = v.begin(); iterator < v.end(); iterator++){
+      double current =  *iterator
+      cout << current << "\n";
+   }
+   system("PAUSE");
+   return 0;
+}
+//---------------------------------------------------------------------------
+ 

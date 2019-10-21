@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	unsigned char a = 100;
+	unsigned char a = -2;
 	unsigned char b = 1;
 	
 	int size = sizeof(a)*8;
