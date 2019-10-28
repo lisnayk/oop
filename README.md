@@ -1,2 +1,0 @@
-# oop
-OOP lectures example

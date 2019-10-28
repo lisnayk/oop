@@ -1,0 +1,58 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+//---------------------------------------------------------------------------
+
+#pragma argsused
+
+#include <iostream.h>
+#include "TComplex.h"
+
+int main(int argc, char* argv[])
+{
+ TComplex a(1,1), b(2,2);
+ TComplex c;
+ const TComplex  cc;
+ cc.setIm(10);
+ cc.print();
+ a.print();
+ cout << a<< endl << cc << endl;
+ /*double d;
+ MyInt anInt;
+ c = 4 + a;
+ d = c + 4;
+ anInt = c;
+ cout << "c = "<< c << "\n";
+ cout << "d = "<< d << "\n";
+ cout << "anInt = "<< anInt.data << "\n";
+  */
+ /*c = operator +(a,b);
+
+ cout << a << "+" << b << " = "<< c << "\n";
+ c =operator +(2, operator +(b,2));
+ cout << a << "+" << 2 << " = "<< c << "\n";
+ c = b;
+ *(c.data) = 100;
+ c.setRe(25);
+ cout << "c = "<< c << "\n";
+cout << "b = "<< b << "\n";
+    *(b.data) = 200;
+ cout << "c = "<< c << "\n";
+cout << "b = "<< b << "\n";
+//b+;
+b.operator ++(1);
+cout << "b = "<< b << "\n";
+//++b;
+b.operator ++();
+cout << "b = "<< b << "\n";
+cout << "b.re = "<< b[0]<< "\n";
+cout << "b.im = "<< b[1]<< "\n";
+
+b(45,67);
+cout << "b = "<< b << "\n";
+ */
+  system("PAUSE");
+   return 0;
+}
+//---------------------------------------------------------------------------
