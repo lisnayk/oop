@@ -1,0 +1,85 @@
+//---------------------------------------------------------------------------
+
+#ifndef TComplexH
+#define TComplexH
+#include <iostream.h>
+class TComplex {
+   private:
+      double re;
+      double im;
+   public:
+       int * data;
+   explicit TComplex(double _re = 0, double _im = 0):re(_re),im(_im){
+        data = new int;
+        *data = 10;
+   }
+
+
+
+   friend TComplex operator + (const TComplex&, const TComplex&);
+   //friend TComplex operator + (const double&, const TComplex&);
+
+   friend ostream& operator << (ostream& out , const TComplex& c);
+
+   void setRe(double val){
+    re = val;
+   }
+   void setIm(double val){
+    im = val;
+   }
+   	TComplex operator - (const TComplex& c){
+		    return TComplex(this->re - c.re, this->im - c.im);
+		};
+      TComplex operator + (const double& a){
+		    return TComplex(this->re + a, this->im);
+		};
+
+		TComplex operator = (const TComplex& c){
+			this->re = c.re;
+			this->im = c.im;
+         *(this->data) = *(c.data)  ;
+		}
+      TComplex operator = (const double c){
+			this->re = c;
+			this->im = 0;
+         *(this->data) = *(c.data)  ;
+		}
+		TComplex operator ++ (){
+			this->re++;
+         cout << "operator ++";
+			return *(this);
+		}
+		TComplex operator ++ (int){
+         cout << "operator ++ int";
+			TComplex res =  *(this);
+			this->re++;
+			return res;
+		}
+      double operator [](const int ind){
+			if (ind == 0) return this->re;
+			return this->im;
+		}
+      TComplex operator ()(double _re, double _im ){
+        this->re = _re;
+        this->im = _im;
+        return *this;
+		}
+      operator double () {
+		 	return re;
+		}
+
+
+};
+
+TComplex operator + (const TComplex & a , const TComplex& b){
+   return TComplex(a.re + b.re, a.im + b.im);
+};
+/*TComplex operator + (const double & b , const TComplex& a){
+   return TComplex(a.re + b, a.im );
+};*/
+
+ostream& operator << (ostream& out , const TComplex& c){
+   return  out << "("<<  c.re << "; "<< c.im <<";"<< *(c.data)  <<")";
+} ;
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,72 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+class  Base {
+ public:
+      int data;
+ public:
+     Base(){
+        cout << "Base default constructor " << endl;
+     }
+     Base(int i):data(i){
+           cout << "Base constructor " << i <<endl;
+     }
+     void Method(){
+             cout << "Base Method = " <<data<< endl;
+     }
+     ~Base(){
+              cout << "Base destructor " <<endl;
+     }
+};
+class FirstChild : public virtual Base {
+//class FirstChild : public  Base {
+   public:
+   FirstChild():Base(3){
+     cout << "FirstChild constructor " <<data<<endl;
+   }
+   /*void Method(){
+        cout << "FirstChild Method" << endl;
+   }    */
+   ~FirstChild(){
+              cout << "FirstChild destructor " <<endl;
+     }
+};
+class SecondChild : public virtual Base {
+//class SecondChild : public  Base {
+   public:
+   SecondChild():Base(2){
+     cout << "SecondChild constructor " <<data<<endl;
+   }  
+   /* void Method(){
+        cout << "SecondChild Method" << endl;     
+   }*/
+};
+class BothChild : public  FirstChild, public  SecondChild {
+      
+   public:
+   BothChild(){
+     cout << "BothChild constructor " <<SecondChild::data<<endl;
+   }
+   void Method(){
+        SecondChild::Method();
+        cout << "BothChild Method" << endl;
+   }
+};
+
+int main(int argc, char *argv[])
+{
+   // FirstChild *child = new FirstChild();
+   // delete child;
+    BothChild b;
+    //data =  10;
+   // b.FirstChild::Method();
+    // b.SecondChild::Method();
+
+    b.Method();
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
+
+

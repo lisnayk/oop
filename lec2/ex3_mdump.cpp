@@ -15,7 +15,7 @@ void mdump(char a){
 //See: https://en.wikipedia.org/wiki/Double-precision_floating-point_format
 int main(int argc, char** argv) {
 	char *a = new char[8];
-	double val = 1.0/3;
+	double val = 0.0;
 	void *p = &val;
 	a = (char*) p;
 	for (int i=7;i>=0;i--){
@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 		cout <<" ";
 	}
 	cout << endl;
-	
+	cout << a;
 	system("pause");
 	return 0;
 }

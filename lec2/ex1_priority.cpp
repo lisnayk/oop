@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
 	cout << "Res = " <<  c << endl;
 	// Ex1
 	cout << "a = " <<  a << "   b = " << b <<  endl;
-	c = b+++a;
+	c = b+(++a);
 	cout << "b+++a = " <<  c << endl;
 	//Ex2
 	cout << "a = " <<  a << "   b = " << b <<  endl;

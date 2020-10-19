@@ -2,12 +2,6 @@
 
 #pragma hdrstop
 
+#include "TComplex.h"
 //---------------------------------------------------------------------------
-
-#pragma argsused
-int main(int argc, char* argv[])
-{
-   return 0;
-}
-//---------------------------------------------------------------------------
- 
+#pragma package(smart_init)
