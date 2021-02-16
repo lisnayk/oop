@@ -1,0 +1,140 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+//---------------------------------------------------------------------------
+
+#pragma argsused
+#include <iostream.h>
+#include <string.h>
+
+enum CarType {CT_UNKNOWN, CT_SEDAN,CT_TRACK, CT_PASSAGER};
+
+class Car {
+  protected:
+    char color[100];
+    char mark[100];
+    int issued;
+    CarType  type;
+
+    CarType getType() {
+        return type;
+    }
+  public:
+
+    Car(CarType type= CT_UNKNOWN, int issued = 2020, char* color="White", char * mark="ZAZ"):type(type),issued(issued){
+     this->setColor(color);
+     this->setMark(mark);
+      cout << "Car constructor\n";
+    }
+
+    ~Car(){
+      cout << "Car destructor\n";
+    }
+    char * getShortInfo(){
+      char* buff = new char[256];
+      sprintf(buff, "Mark: %s", this->mark);
+      return buff;
+    }
+
+    char* getFullInfo() const{
+      char* buff = new char[256];
+      sprintf(buff, "Mark: %s, Color: %s, Issued: %i", this->mark, this->color, this->issued );
+      return buff;
+    }
+
+    void setIssued(int issued){
+      this->issued = issued;
+    }
+    int getIssued(){
+      return this->issued;
+    }
+    void setColor(char *_color){
+      strcpy(this->color, _color);
+    }
+    const char * getColor() const{
+      return this->color;
+    }
+    void setMark(char *_mark){
+      strcpy(this->mark, _mark);
+    }
+    const char * getMark() const{
+      return this->mark;
+    }
+
+    void Print(){
+      cout << "Car print" << endl;
+    }
+    void Print(int data){
+      cout << "Car print: "<< data << endl;
+    }
+    void Print(float data){
+      cout << "Car print  float: "<< data << endl;
+    }
+
+
+};
+class PassangerCar: public Car{
+   public:
+    PassangerCar(){
+      cout << "PassangerCar constructor\n";
+    }
+    ~PassangerCar(){
+      cout << "PassangerCar destructor\n";
+    }
+};
+class Sedan: public PassangerCar {
+  public:
+
+    using Car::getType;
+
+    char* getFullInfo() const{
+      cout << "getFullInfo was called \n";
+      return Car::getFullInfo();
+    }
+
+    void Print(){
+        cout << "Sedan print" << endl;
+    }
+
+    Sedan(){
+      cout << "Sedan constructor\n";
+    }
+    ~Sedan(){
+      cout << "Sedan destructor\n";
+    }
+};
+
+class Track: public Car {
+  public:
+     Track(){
+      cout << "PassangerCar constructor\n";
+    }
+    ~Track(){
+      cout << "PassangerCar destructor\n";
+    }
+};
+
+int main(int argc, char* argv[])
+{
+  Car* car1 = new Car();
+  Sedan* car = new Sedan();
+
+  car->setColor("Red");
+  car->setMark("BMW");
+
+  ///cout << car->getShortInfo()<< endl;
+  // cout << car->getFullInfo()<< endl;
+  // cout << car->getType()<< endl;
+  car->Print();
+  //car->Print(1);
+  //car->Print((float)2.0);
+
+
+
+  delete car;
+  system("pause");
+  return 0;
+}
+//---------------------------------------------------------------------------
+

@@ -22,8 +22,8 @@ class  Base {
               cout << "Base destructor " <<endl;
      }
 };
-class FirstChild : public virtual Base {
-//class FirstChild : public  Base {
+//class FirstChild : public virtual Base {
+class FirstChild : public  Base {
    public:
    FirstChild():Base(36){
      cout << "FirstChild constructor " <<data<<endl;
@@ -35,8 +35,8 @@ class FirstChild : public virtual Base {
               cout << "FirstChild destructor " <<endl;
      }
 };
-class SecondChild : public virtual Base {
-//class SecondChild : public  Base {
+//class SecondChild : public virtual Base {
+class SecondChild : public  Base {
    public:
    SecondChild():Base(12){
      cout << "SecondChild constructor " <<data<<endl;
@@ -48,7 +48,7 @@ class SecondChild : public virtual Base {
 class BothChild : public  FirstChild, public  SecondChild{
 
    public:
-   BothChild(){
+   BothChild() {
      cout << "BothChild constructor " <<SecondChild::data<<endl;
    }
    void Method(){
