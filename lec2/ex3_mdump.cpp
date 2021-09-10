@@ -15,15 +15,16 @@ void mdump(char a){
 //See: https://en.wikipedia.org/wiki/Double-precision_floating-point_format
 int main(int argc, char** argv) {
 	char *a = new char[8];
-	double val = 0.0;
+	double val = 0.33;
 	void *p = &val;
 	a = (char*) p;
+  cout << val <<  " = ";
 	for (int i=7;i>=0;i--){
 		mdump(a[i]);
 		cout <<" ";
 	}
 	cout << endl;
-	cout << a;
+//	cout << a;
 	system("pause");
 	return 0;
 }

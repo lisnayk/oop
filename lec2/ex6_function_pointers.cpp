@@ -20,5 +20,6 @@ int main(int argc, char** argv) {
 	PPrinter p1 = &f1;
 	Logger(10, p);	
 	Logger(10, p1);
+  system("pause");
 	return 0;
 }
