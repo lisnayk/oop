@@ -5,14 +5,14 @@
 //---------------------------------------------------------------------------
 
 #pragma argsused
-// int a[5000][5000];
+//int a[5000][5000];
 int main(int argc, char* argv[])
 {
-  // int arr[10][10] , arr2[3] = { 1, 2, 3};
+  //int arr[10][10] , arr2[3] = { 1, 2, 3};
 
-  // int * parr = arr2;
+  int *parr = new int[25000000];
   ////////////////////////////////
-  int ** parr2 = new int*[10] ;
+  /*int ** parr2 = new int*[10] ;
   for(int i=0; i<10; i++){
     parr2[i] = new int[10];
   }
@@ -20,10 +20,10 @@ int main(int argc, char* argv[])
   // ...
   for(int i=0; i<10; i++){
     delete [] parr2[i];
-  }
-  delete [] parr2;
+  }*/
+  delete [] parr;
   ////////////////////////////////
- system("pause");
+  system("pause");
   return 0;
 }
 //---------------------------------------------------------------------------

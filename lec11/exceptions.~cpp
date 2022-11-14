@@ -10,18 +10,18 @@ class MyBadEx {};
 class MySecondBadEx {};
 // Без спецификации исключений unexpected не вызываетчя
 void ThrMyEx() { //throw(MyEx){
-     throw MyEx();     
+     throw MyEx();
 }
 void ThrMySEx() { //throw(MySEx){
      throw MySEx();     
 }
 void ThrNoEx() throw(MySEx, MyBadEx){ //throw(MySEx){
-     throw 1;     
+     throw 1;
 }
 
 void F(){
       cout << "My terminate function! ";
-      system("PAUSE");   
+      system("PAUSE");
       exit;  // abort();
 }
 void U() throw(MyBadEx) {
@@ -29,7 +29,7 @@ void U() throw(MyBadEx) {
      system("PAUSE");
      throw MyBadEx();   // -- all ok
      //throw MySecondBadEx();    next terminate
-     
+
 }
 // catch NO EXCEPTION
 /*void U() throw(MyBadEx) {
@@ -44,22 +44,23 @@ void bad_test() throw(bad_exception, MyEx){
 	throw MyEx();
 }
 int main(int argc, char *argv[]){
-    
+
     set_terminate(F);
     set_unexpected(U);
-    // Catch MyEx
-   /* try {
-        ThrMyEx();
-        
+    //ThrNoEx();
+    //Catch MyEx
+
+    try {
+        //ThrMyEx();
+        ThrMySEx();
     } catch(MyEx ex){
-          cout << "MyEx! \n";     
-          //throw MySEx();   
+          cout << "MyEx! \n";
+          //throw MySEx();
     } catch(...){
-          cout << "Unknown! \n"; 
-        
+          cout << "Unknown! \n";
     }
     // catch(...)
-    try {
+    /*try {
         ThrMySEx();
         
     } catch(MyEx ex){
@@ -68,9 +69,9 @@ int main(int argc, char *argv[]){
     } catch(...){
           cout << "Unknown! \n"; 
                  
-    } 
+    }
     // catch NO EXCEPTION
-  
+     /*
         try {
             ThrNoEx();
             
@@ -78,9 +79,11 @@ int main(int argc, char *argv[]){
               cout << "MyEx! \n";     
               
         } catch(MyBadEx b){
-              cout << "bad_exception! \n"; 
+              cout << "bad_exception! \n";
                      
         }
+
+        /*
     */
      /*try {
             bad_test();

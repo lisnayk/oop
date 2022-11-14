@@ -15,7 +15,16 @@ int sum(int ***arr){
 	return 0;
 }*/
 int main(int argc, char** argv) {
-	int *pInt = new int;
+  int a[] = {1,2,3};
+  int *pa = a + 1;
+
+
+  cout << a << endl;
+  cout << *a << endl;
+  cout << *pa << endl;
+   cout << *(pa+1) << endl;
+
+ /*	int *pInt = new int;
 	float *pFloat = new float;
 	void * pVoid;
 	*pInt = 1;
@@ -26,6 +35,7 @@ int main(int argc, char** argv) {
 	
 	cout << sizeof(float)<< " "<<*pFloat<< endl;
 	delete pInt;
-	delete pFloat; 
+	delete pFloat;    */
+  system("PAUSE");
 	return 0;
 }

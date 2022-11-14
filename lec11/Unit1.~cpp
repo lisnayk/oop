@@ -28,7 +28,7 @@ class MyConvertException: public MyException {
            MyConvertException(AnsiString msg = "MyExceptoon message"): MyException(msg){
            }
 };
-int TForm1::getUserValue(){
+int TForm1::getUserValue() throw(int){
   int res = 0;
      try {
        res =  Edit1->Text.ToInt();
@@ -38,14 +38,16 @@ int TForm1::getUserValue(){
      return res;
 }
 
-void __fastcall cButton1Click(TObject *Sender)
+void __fastcall TForm1::Button1Click(TObject *Sender)
 {
    try {
-       int a= this->getUserValue()
+       int a= Form1->getUserValue();
        Label1->Caption = Edit1->Text;
    }  catch(int err){
         Label1->Caption = "Integer exceptio!";
-   } catch(MyException* err){
+    } catch(MyConvertException* err){
+        Label1->Caption = err->getMessage();
+    } catch(MyException* err){
         Label1->Caption = err->getMessage();
    }
    catch(...){

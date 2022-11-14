@@ -1,18 +1,23 @@
 #include <iostream>
 class Student {
-	int marks[10];
-	char name[256];
-	char group[10];
-	
+
+  protected:
+
+    const __CURRENT_YEAR__;
+	  int marks[10];
+	  char name[256];
+	  char group[10];
+    int age
+
 	public:
-	
-	
+
+
 	~Student(){
 		std::cout << "student Destructor\n";
 	}
 	Student(const Student& student){
 		std::cout << "student COPY CONSTRUCTOR\n";
-	}	
+	}
 		
 	Student(int a=0){
 		std::cout << "student CONSTRUCTOR\n";
@@ -20,12 +25,12 @@ class Student {
 			this->marks[i] = i*2;
 		}	
 	}
-	
-	float avgBall() {
+
+	inline float avgBall(int marks) {
 		float avg = 0;
 		for(int i = 0; i<10; i++){
-			avg +=this->marks[i];
-		}	
+			avg += this->marks[i];
+		}
 		return avg/10;
 	};
 		

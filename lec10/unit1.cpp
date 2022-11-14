@@ -23,7 +23,8 @@ void __fastcall TForm1::FormClick(TObject *Sender)
     // ShowMessage(myForm->Caption);
 
     if( dynamic_cast<TButton*>(Sender)){
-      ShowMessage(dynamic_cast<TButton*>(Sender)->Caption);
+      TButton* btn = dynamic_cast<TButton*>(Sender);
+      ShowMessage(btn->Caption);
        return;
    }
    if( dynamic_cast<TLabel*>(Sender)){
